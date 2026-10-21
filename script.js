@@ -1,0 +1,3 @@
+const root=document.documentElement;const btn=document.getElementById('theme');let saved=null;try{saved=localStorage.getItem('theme');}catch(e){}
+apply(saved?saved==='dark':matchMedia('(prefers-color-scheme: dark)').matches);function apply(d){root.dataset.theme=d?'dark':'light';btn.textContent=d?'☀️':'🌙';}
+btn.addEventListener('click',()=>{const d=root.dataset.theme!=='dark';apply(d);try{localStorage.setItem('theme',d?'dark':'light');}catch(e){}});
